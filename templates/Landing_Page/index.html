@@ -1,0 +1,152 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Analyse philosophique propulsée par l'IA - Obtenez des dissertations philosophiques approfondies rédigées par un philosophe virtuel d'élite."
+    />
+    <title>Philosophie IA | Analyse Philosophique Profonde</title>
+    <style>
+      body {
+          font-family: 'Arial', sans-serif;
+          background-color: #1c1e26;
+          color: #cfcfcf;
+          margin: 0;
+          padding: 0;
+      }
+      header {
+          background: #1c1e26;
+          color: #32e17c;
+          padding: 20px;
+          text-align: center;
+          border-bottom: 1px solid #2e2f38;
+      }
+      header h1 {
+          margin: 0;
+          font-size: 2.5em;
+      }
+      header p {
+          font-size: 1.2em;
+      }
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+      }
+      .hero {
+          background: #2e2f38;
+          color: #cfcfcf;
+          padding: 50px 20px;
+          text-align: center;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .hero h2 {
+          font-size: 2.5em;
+          margin-bottom: 20px;
+          color: #32e17c;
+      }
+      .hero p {
+          font-size: 1.2em;
+          margin-bottom: 20px;
+      }
+      .cta-btn {
+          background: #32e17c;
+          color: #1c1e26;
+          padding: 15px 30px;
+          border: none;
+          border-radius: 5px;
+          font-size: 1.1em;
+          cursor: pointer;
+          text-decoration: none;
+      }
+      .cta-btn:hover {
+          background: #28b568;
+      }
+      .features {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          margin-top: 40px;
+      }
+      .feature {
+          background: #252733;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          flex: 1;
+          min-width: 250px;
+          color: #cfcfcf;
+      }
+      .feature h3 {
+          margin-top: 0;
+          color: #32e17c;
+      }
+      .feature p {
+          font-size: 1em;
+          margin-bottom: 0;
+      }
+      footer {
+          background: #1c1e26;
+          color: #cfcfcf;
+          text-align: center;
+          padding: 20px;
+          margin-top: 40px;
+          border-top: 1px solid #2e2f38;
+      }
+      footer p {
+          margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SocratIA</h1>
+      <p>Votre Philosophe Virtuel pour des Analyses Profondes et Stimulantes</p>
+    </header>
+
+    <div class="container">
+      <section class="hero">
+        <h2>Demandez, Analysez, Éclairez</h2>
+        <p>
+          Obtenez des dissertations philosophiques personnalisées, rédigées par
+          une intelligence artificielle entraînée à penser comme les plus grands
+          philosophes du monde. Explorez les questions profondes avec une
+          analyse minutieuse et argumentée.
+        </p>
+        <a href="{% url 'chat:chat' %}" class="cta-btn">Commencer</a>
+      </section>
+
+      <section id="features" class="features">
+        <div class="feature">
+          <h3>Analyse Approfondie</h3>
+          <p>
+            Notre IA explore chaque angle de votre question, fournissant des
+            insights issus de la philosophie classique et contemporaine.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Écriture de Niveau Expert</h3>
+          <p>
+            Recevez des dissertations d'une profondeur et d'une rigueur dignes
+            des plus grands penseurs, rédigées dans la langue de votre choix.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Considérations Éthiques</h3>
+          <p>
+            Des analyses réfléchies qui plongent dans les implications éthiques
+            et les dimensions morales de chaque question.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 SocratIA. Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,543 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Avokai" />
+    <meta name="keywords" content="Avokai" />
+    <meta name="author" content="Avokai" />
+    <link
+      rel="icon"
+      href="{% static 'assets/images/favicon.png' %}"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static 'assets/images/favicon.png'%}"
+      type="image/x-icon"
+    />
+    <title>SocratAI- CHAT</title>
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .dot {
+        animation: dotAnimation 1.5s infinite;
+        display: inline-block;
+      }
+
+      .dot1 {
+        animation-delay: 0s;
+      }
+      .dot2 {
+        animation-delay: 0.2s;
+      }
+      .dot3 {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes dotAnimation {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+    <!-- bootstrap css -->
+    <link
+      id="rtl-link"
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/bootstrap.css'%}"
+    />
+
+    <!-- remixicon css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/remixicon.css'%}"
+    />
+
+    <!-- iconsax css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/iconsax.css'%}"
+    />
+
+    <!-- animation css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/aos.css'%}"
+    />
+
+    <!-- swiper slider css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/vendors/swiper-bundle.min.css'%}"
+    />
+
+    <!-- style css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/style.css'%}"
+    />
+  </head>
+
+  <body>
+    <section class="chatting-wrapper pt-0">
+      <nav class="navbar navbar-expand-md p-0">
+        <button
+          class="navbar-toggler d-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainnavbarNav"
+          aria-controls="mainnavbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="iconsax" data-icon="text-align-justify"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="mainnavbarNav">
+          <div class="menu-panel">
+            <button
+              data-bs-toggle="collapse"
+              data-bs-target="#mainnavbarNav"
+              class="mainnav-close d-block d-md-none"
+            >
+              <i class="iconsax" data-icon="close-circle"></i>
+            </button>
+            <a href="#" class="logo-icon d-none d-md-flex">
+              <img
+                src="{% static 'assets/svg/logo-icon.svg'%}"
+                class="img-fluid"
+              />
+            </a>
+            <ul class="nav nav-tabs menu-wrapper" id="myTab" role="tablist">
+              <li
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                data-bs-title="Chat"
+                class="nav-item"
+                role="presentation"
+              >
+                <button
+                  class="nav-link active"
+                  data-bs-toggle="tab"
+                  data-bs-target="#chat"
+                  type="button"
+                  role="tab"
+                  aria-controls="chat"
+                  aria-selected="true"
+                >
+                  <i class="iconsax" data-icon="messages-2"></i>
+                  <span>Chat</span>
+                </button>
+              </li>
+
+              <li
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                data-bs-title="Help"
+                class="nav-item"
+                role="presentation"
+              >
+                <button
+                  class="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#help"
+                  type="button"
+                  role="tab"
+                  aria-controls="help"
+                  aria-selected="false"
+                >
+                  <i
+                    class="iconsax"
+                    data-icon="question-message
+                                "
+                  ></i>
+                  <span>Aide</span>
+                </button>
+              </li>
+              <li
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                data-bs-title="Ratings"
+                class="nav-item"
+                role="presentation"
+              >
+                <button
+                  type="button"
+                  class="btn btn-primary nav-link"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  <i class="iconsax" data-icon="star"></i>
+                  <span> Feed-Back </span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="tab-content">
+        <div
+          class="tab-pane fade show active"
+          id="chat"
+          role="tabpanel"
+          aria-labelledby="chat"
+          tabindex="0"
+        >
+          <div class="main-wrapper">
+            <nav class="navbar navbar-expand-lg bg-light p-0">
+              <button
+                class="navbar-toggler d-none"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="iconsax" data-icon="text-align-justify"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="inner-menu-panel">
+                  <button
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    class="inner-close d-block d-lg-none"
+                  >
+                    Back
+                  </button>
+                  <div class="search-box">
+                    <i class="iconsax" data-icon="search-normal-2"></i>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search here.."
+                    />
+                  </div>
+                  <ul class="inner-links-list" id="innerLink">
+                    <li class="active">
+                      <a href="#!" data-title="Questionnez AVOKAI"
+                        >Questionnez SocratAI</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <div class="chat-header">
+              <div class="d-flex align-items-center gap-2">
+                <button
+                  class="navbar-toggler d-md-none d-block"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#mainnavbarNav"
+                  aria-controls="mainnavbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <i class="iconsax" data-icon="text-align-justify"></i>
+                </button>
+                <a href="#" class="logo-icon d-flex d-md-none">
+                  <img
+                    src=".{% static 'assets/svg/logo-icon.svg'%}"
+                    class="img-fluid"
+                  />
+                </a>
+                <h3 id="targetDiv">Questionnez SocratAI</h3>
+                <h4 style="color: white;">
+                  Les reponses prennent du temps, c' est quand meme de la
+                  philosophie 😁😁😁
+                </h4>
+              </div>
+
+              <div class="header-option">
+                <a class="del-btn" data-cursor="pointer" href=""
+                  ><i class="iconsax" data-icon="trash"></i
+                ></a>
+                <a class="log_out" data-cursor="pointer" href="#"
+                  ><i>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      version="1.1"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 256 256"
+                      xml:space="preserve"
+                    >
+                      <defs></defs>
+                      <g
+                        style="
+                          stroke: none;
+                          stroke-width: 0;
+                          stroke-dasharray: none;
+                          stroke-linecap: butt;
+                          stroke-linejoin: miter;
+                          stroke-miterlimit: 10;
+                          fill: none;
+                          fill-rule: nonzero;
+                          opacity: 1;
+                        "
+                        transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+                      >
+                        <path
+                          d="M 36.137 34.78 c -9.589 0 -17.39 -7.801 -17.39 -17.39 C 18.747 7.801 26.548 0 36.137 0 s 17.39 7.801 17.39 17.39 C 53.527 26.979 45.726 34.78 36.137 34.78 z M 36.137 7 c -5.729 0 -10.39 4.661 -10.39 10.39 s 4.661 10.39 10.39 10.39 s 10.39 -4.661 10.39 -10.39 S 41.866 7 36.137 7 z"
+                          style="
+                            stroke: none;
+                            stroke-width: 1;
+                            stroke-dasharray: none;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            fill: rgba(var(--theme-color));
+                            fill-rule: nonzero;
+                            opacity: 1;
+                          "
+                          transform=" matrix(1 0 0 1 0 0) "
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M 11.721 90 c -1.933 0 -3.5 -1.567 -3.5 -3.5 V 61.756 c 0 -11.14 9.063 -20.203 20.203 -20.203 h 15.427 c 6.92 0 13.29 3.505 17.039 9.375 c 1.084 1.698 1.904 3.539 2.438 5.471 c 0.516 1.862 -0.577 3.791 -2.44 4.306 c -1.86 0.519 -3.791 -0.576 -4.306 -2.44 c -0.349 -1.258 -0.884 -2.459 -1.593 -3.568 c -2.456 -3.847 -6.62 -6.143 -11.138 -6.143 H 28.424 c -7.28 0 -13.203 5.923 -13.203 13.203 V 86.5 C 15.221 88.433 13.654 90 11.721 90 z"
+                          style="
+                            stroke: none;
+                            stroke-width: 1;
+                            stroke-dasharray: none;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            fill: rgba(var(--theme-color));
+                            fill-rule: nonzero;
+                            opacity: 1;
+                          "
+                          transform=" matrix(1 0 0 1 0 0) "
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M 60.554 90 c -1.933 0 -3.5 -1.567 -3.5 -3.5 v -2.236 c 0 -1.933 1.567 -3.5 3.5 -3.5 s 3.5 1.567 3.5 3.5 V 86.5 C 64.054 88.433 62.486 90 60.554 90 z"
+                          style="
+                            stroke: none;
+                            stroke-width: 1;
+                            stroke-dasharray: none;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            fill: rgba(var(--theme-color));
+                            fill-rule: nonzero;
+                            opacity: 1;
+                          "
+                          transform=" matrix(1 0 0 1 0 0) "
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M 80.754 68.741 l -8.515 -8.515 c -1.367 -1.367 -3.582 -1.367 -4.949 0 c -1.367 1.366 -1.367 3.583 0 4.949 l 2.54 2.54 H 36.137 c -1.933 0 -3.5 1.567 -3.5 3.5 s 1.567 3.5 3.5 3.5 h 33.693 l -2.541 2.541 c -1.367 1.367 -1.367 3.583 0 4.949 c 0.684 0.684 1.579 1.025 2.475 1.025 s 1.792 -0.342 2.475 -1.025 l 8.515 -8.516 C 82.121 72.323 82.121 70.107 80.754 68.741 z"
+                          style="
+                            stroke: none;
+                            stroke-width: 1;
+                            stroke-dasharray: none;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            fill: rgba(var(--theme-color));
+                            fill-rule: nonzero;
+                            opacity: 1;
+                          "
+                          transform=" matrix(1 0 0 1 0 0) "
+                          stroke-linecap="round"
+                        />
+                      </g></svg></i
+                ></a>
+              </div>
+            </div>
+            <div class="main-chat">
+              <div class="no-chat">
+                <div>
+                  <img
+                    src=".{% static 'assets/svg/no-chat.svg'%}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <h3>Demandez tout à SocratAI</h3>
+                </div>
+              </div>
+              <div class="msger-chat"></div>
+
+              <form class="msger-inputarea" id="msgerForm" method="POST">
+                {% csrf_token %}
+                <input
+                  type="text"
+                  class="msger-input"
+                  placeholder="Poser votre Sujet Philosophie Ici..."
+                  name="user_message"
+                />
+
+                <button
+                  type="button"
+                  class="msger-send-btn"
+                  onclick="submitForm(`{% url 'chat:message' %}`)"
+                >
+                  <i class="iconsax" data-icon="send-1"></i> Envoyer
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="help"
+          role="tabpanel"
+          aria-labelledby="help"
+          tabindex="0"
+        >
+          <div class="main-wrapper p-0">
+            <div class="fixed-header">
+              <div class="d-flex align-items-center gap-2">
+                <button
+                  class="navbar-toggler d-md-none d-block"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#mainnavbarNav"
+                  aria-controls="mainnavbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <i class="iconsax" data-icon="text-align-justify"></i>
+                </button>
+                <a href="#" class="logo-icon d-flex d-md-none">
+                  <img
+                    src="{% static 'assets/svg/logo-icon.svg' %}"
+                    class="img-fluid"
+                  />
+                </a>
+                <h3>FAQ</h3>
+              </div>
+            </div>
+            <div class="faq-section main-section"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div
+      class="modal rating-modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Votre Feed-Back
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <i class="iconsax" data-icon="close-square"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="auth-form"
+              method="POST"
+              action="{% url 'chat:feedback' %}"
+            >
+              {%csrf_token%}
+              <div class="form-group">
+                <label for="comment" class="form-label text-white"
+                  >Que Pensez-Vous?</label
+                >
+                <textarea
+                  type="search"
+                  class="form-control"
+                  placeholder="Ecrivez votre Feed Back "
+                  id="comment"
+                  name="feedback"
+                ></textarea>
+              </div>
+              <ul
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+                class="star-rating"
+              >
+                <li><i class="ri-star-fill"></i></li>
+                <li><i class="ri-star-fill"></i></li>
+                <li><i class="ri-star-fill"></i></li>
+                <li><i class="ri-star-fill"></i></li>
+                <li><i class="ri-star-fill"></i></li>
+              </ul>
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  class="modal-submit m-0"
+                  data-bs-dismiss="modal"
+                >
+                  Envoyer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--custom cursor start  -->
+    <div id="cursor"></div>
+    <div id="cursor-border"></div>
+    <!--custom cursor start  -->
+    <script>
+      function submitForm(action) {
+        console.log("Form action set to: ", action); // This will log the action to the console
+        var form = document.getElementById("msgerForm");
+        form.action = action;
+        form.submit();
+      }
+    </script>
+    <!-- Bootstrap js-->
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js'%}"></script>
+
+    <!-- slider js-->
+    <script src="{% static 'assets/js/swiper-bundle.min.js'%}"></script>
+    <script src="{% static 'assets/js/custom-slider.js'%}"></script>
+
+    <!-- custom cursor -->
+    <script src="{% static 'assets/js/custom-cursor.js'%}"></script>
+
+    <!-- iconsax js -->
+    <script src="{% static 'assets/js/iconsax.js'%}"></script>
+
+    <!-- chat page js -->
+    <script src="{% static 'assets/js/chat-page.js'%}"></script>
+
+    <!-- iconsax js -->
+    <script src="{% static 'assets/js/chatting.js'%}"></script>
+
+    <!-- Theme js-->
+    <script src="{% static 'assets/js/script.js'%}"></script>
+  </body>
+</html>
